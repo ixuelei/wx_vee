@@ -1,0 +1,118 @@
+<!--pages/indexMap/indexMap.wxml-->
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+  <!-- <text>{{longitude}},{{latitude}}</text> -->
+  <view class='top'>
+    <view class='top-1'>
+      <image class="image-frame" src="{{imageUrl}}" mode="aspectFill"></image>
+      <view class='top-1-2'>
+        <text class='top-name'>李锂思<text>实名认证</text></text>
+        <text>杭州 30° 多云转晴</text>
+      </view>
+    </view>
+    <view class='top-2'>
+      <text>电池：75%</text>
+      <text><text>套餐：35天</text></text>
+      <text>换电：45次</text>
+    </view>
+  </view>
+  <view class='middle'>
+    <!-- 搜索 -->
+    <view class="page__bd">
+      <view class="weui-search-bar">
+        <view class='opt'>
+          <text>杭州市</text>
+          <image src="{{down}}" mode="aspectFill"></image>
+        </view>
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+          </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+      </view>
+      <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+        <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">
+            <view>实时搜索文本</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">
+            <view>实时搜索文本</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">
+            <view>实时搜索文本</view>
+          </view>
+        </navigator>
+        <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">
+            <view>实时搜索文本</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on_2' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="tab_content tab_content_1" hidden="{{activeIndex != 0}}">
+          <view wx:for="{{res}}" data-id="{{index}}" wx:key="{{index}}" style="height:{{(height/6)-1}}px;width:100%;text-align:center;line-height:{{(height/6)-1}}px; border-bottom:1px solid #ccc">
+            {{item}}
+          </view>
+        </view>
+        <view class="tab_content tab_content_2" hidden="{{activeIndex != 1}}">
+          <view style="height:{{(height/6)-1}}px;width:100%; border-bottom:1px solid #ECECEC">
+            <view class='tab_lift'>
+              <view>
+                <text>七贤山居西广场1号</text>
+                <text>电柜</text>
+              </view>
+              <view>
+                <text>杭州市余杭区良渚七贤山居</text>
+              </view>
+              <view>
+                <text><text></text>可换8</text>
+                <text><text></text>充电2</text>
+                <text><text></text>空箱4</text>
+                <text><text></text>占箱6</text>
+              </view>
+            </view>
+            <view class='tab_right'>
+              <image src="{{imageUrl}}"></image>
+            </view>
+          </view>
+        </view>
+        <view class="tab_content tab_content_3" hidden="{{activeIndex != 2}}">
+          3
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!-- map.wxml -->
+  <!-- <map
+  id="map"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="14"
+  show-location
+></map> -->
+</scroll-view>

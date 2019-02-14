@@ -1,0 +1,41 @@
+/* pages/scroll-view.wxss */
+.scroll-view-y { 
+
+ height: 200px; 
+
+ width: 100%; 
+
+} 
+
+  
+
+.scroll-y-item { 
+
+ height: 70px; 
+
+ width: 100%; 
+
+}
+.scroll-view-x { 
+
+ width: 300px; 
+
+ height: 100px; 
+
+ display: flex; 
+
+ overflow: scroll; 
+
+} 
+
+  
+
+.scroll-x-item { 
+
+ width: 95px; 
+
+ height: 100%; 
+
+ display: inline-table; 
+
+}
