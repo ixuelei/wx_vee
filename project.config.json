@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -47,7 +47,14 @@
 				{
 					"id": -1,
 					"name": "ceshi",
-					"pathName": "pages/scroll-view"
+					"pathName": "pages/scroll-view",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/center/my/my",
+					"scene": null
 				}
 			]
 		}

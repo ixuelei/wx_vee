@@ -7,22 +7,26 @@ Page({
    */
   data: {
     imageUrl: "http://img1.3lian.com/2015/w7/85/d/101.jpg",
-    down: "https://cshd.yusong.com.cn/static/images/img/down.png",
-    G2: "https://cshd.yusong.com.cn/static/images/img/2G5.png",
-    G3: "https://cshd.yusong.com.cn/static/images/img/3G5.png",
-    G4: "https://cshd.yusong.com.cn/static/images/img/4G5.png", 
-    b_bike: "https://cshd.yusong.com.cn/static/images/img/b_bike.png", 
-    g_bike: "https://cshd.yusong.com.cn/static/images/img/g_bike.png", 
+    down: "../images/down.png",
+    G2: "../images/2G5.png",
+    G3: "../images/3G5.png",
+    G4: "../images/4G5.png",
+
+    b_bike: "../images/b_bike.png",
+    g_bike: "../images/g_bike.png",
     inputShowed: false,
     inputVal: "",
     longitude: 0,
     latitude: 0,
+    //个人信息
+    infoData: {},
     // 列表
     tabs: ["全部", "充电站", "门店"],
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
     //加载更多
+    listBg: ['#00C901', '#B7021C', '#E0E0E0', '#6191FF', '#B3B3B3'],
     height: '',
     res: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
@@ -30,6 +34,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var that = this
+    // 请求个人信息
+    wx.request({
+      url: 'https://hdg.yusong.com.cn/api/v1/customer/basic/customer/info.htm', // 仅为示例，并非真实的接口地址
+      data: {
+        "openId": "oBepA5i8wyB-W3HrXfBseo6Mo_QM",
+        "password": "916F7752A4540526872FEFEF8128FCDB"
+      },
+      header: {
+        'Content-Type': 'application/json', // 默认值
+        'Authorization': 'Bearer d8e819c6a57b0a4ae3a817daf8a588896533'
+      },
+      success(res) {
+        let myRes = res.data,
+          myData = res.data.data
+        console.log(myRes)
+        if (myRes.code == 0) {
+          that.setData({
+            infoData:myData
+          })
+        }
+      }
+    })
+
+
     console.log(options)
     //获取当前经纬度
     // wx.getLocation({
@@ -46,9 +75,9 @@ Page({
     // })
 
     // 列表
-    let that = this;
+    var that = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           height: res.windowHeight,
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
@@ -57,36 +86,36 @@ Page({
       }
     });
   },
-// -----------------------------------0
-  showInput () {
+  // -----------------------------------0
+  showInput() {
     this.setData({
       inputShowed: true
     });
   },
-  hideInput () {
+  hideInput() {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
-  clearInput () {
+  clearInput() {
     this.setData({
       inputVal: ""
     });
   },
-  inputTyping (e) {
+  inputTyping(e) {
     this.setData({
       inputVal: e.detail.value
     });
   },
   // 列表
-  tabClick (e) {
+  tabClick(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
   },
-//加载更多
+  //加载更多
   lower() {
     var result = this.data.res;
 
@@ -124,14 +153,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    console.log(this.data.infoData)
   },
 
   /**
@@ -159,7 +188,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+     
   },
 
   /**

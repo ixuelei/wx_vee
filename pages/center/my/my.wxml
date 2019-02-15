@@ -1,0 +1,91 @@
+<view>
+  <!-- top -->
+  <view class='top'>
+    <image class='portrait' src='{{imageUrl}}'></image>
+    <view>
+      <text>李逵</text>
+      <text>15893140840</text>
+    </view>
+    <view class='down'></view>
+  </view>
+  <!-- 钱包 -->
+  <view class='wallet'>
+    <view class='wallet-1'>
+      <view class='wallet-1-1'>
+        <image class='walleImg' src='../../images/MoneyBag.png'></image>
+        <text class='h2'>我的钱包</text>
+        <text class='p'>当前余额: 1235元</text>
+        <view class='go'>
+          <text>进入</text>
+          <view class='down'></view>
+        </view>
+      </view>
+      <view class='wallet-1-2'>
+        <text>充值<text></text> </text>
+        <text>交押金<text></text> </text>
+        <text>租车<text></text> </text>
+        <text>换电<text></text> </text>
+        <text>购买包月</text>
+      </view>
+      <view class='line'></view>
+    </view>
+    <view class='wallet-2'>
+      <view class='wallet-2-1'>
+        <view>
+          <image class='walleImg' src='../../images/coupon.png'></image>
+          <text>优惠券</text>
+        </view>
+        <view>
+          <text>1张</text>
+        </view>
+      </view>
+      <view class='wallet-2-2'>
+        <text class='left-line'></text>
+        <view>
+          <image class='walleImg' src='../../images/timeInterval.png'></image>
+          <text>包时段</text>
+        </view>
+        <view>
+          <text>8月31到期</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的订单 -->
+  <view class='order'>
+    <text class='h2'>我的订单</text>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <image src='../../images/myBattery.png'></image>
+          <text>我的电池</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <image src='../../images/batteryRetreat.png'></image>
+          <text>退电池</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <image src='../../images/depositRetreat.png'></image>
+          <text>退押金</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <image src='../../images/replace.png'></image>
+          <text>换电订单</text>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <image src='../../images/package.png'></image>
+          <text>租车订单</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

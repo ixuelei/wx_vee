@@ -3,16 +3,16 @@
   <!-- <text>{{longitude}},{{latitude}}</text> -->
   <view class='top'>
     <view class='top-1'>
-      <image class="image-frame" src="{{imageUrl}}" mode="aspectFill"></image>
+      <image class="image-frame" src="{{infoData.photoPath?infoData.photoPath:imageUrl}}" mode="aspectFill"></image>
       <view class='top-1-2'>
-        <text class='top-name'>李锂思<text>实名认证</text></text>
+        <text class='top-name'>{{infoData.fullname?infoData.fullname:'李锂思'}}<text>实名认证</text></text>
         <text>杭州 30° 多云转晴</text>
       </view>
     </view>
     <view class='top-2'>
-      <text>电池：75%</text>
-      <text><text>套餐：35天</text></text>
-      <text>换电：45次</text>
+      <text>电池：{{infoData.batteryVolume?infoData.batteryVolume:'35'}}%</text>
+      <text><text>套餐：{{infoData.vehicleRemainTime?infoData.vehicleRemainTime:'35'}}天</text></text>
+      <text>换电：{{infoData.exchangeCount?infoData.exchangeCount:'45'}}次</text>
     </view>
   </view>
   <view class='middle'>
@@ -74,13 +74,8 @@
       </view>
       <view class="weui-tab__panel">
         <view class="tab_content tab_content_1" hidden="{{activeIndex != 0}}">
-          <view wx:for="{{res}}" data-id="{{index}}" wx:key="{{index}}" style="height:{{(height/6)-1}}px;width:100%;text-align:center;line-height:{{(height/6)-1}}px; border-bottom:1px solid #ccc">
-            {{item}}
-          </view>
-        </view>
-        <view class="tab_content tab_content_2" hidden="{{activeIndex != 1}}">
-          <view style="height:{{(height/6)-1}}px;width:100%; border-bottom:1px solid #ECECEC">
-            <view class='tab_lift'>
+          <view class='tab_content_li' style="border-bottom:1px solid #ECECEC" wx:for="{{res}}" data-id="{{index}}" wx:key="{{index}}">
+            <view class='tab_left'>
               <view>
                 <text>七贤山居西广场1号</text>
                 <text>电柜</text>
@@ -89,21 +84,57 @@
                 <text>杭州市余杭区良渚七贤山居</text>
               </view>
               <view>
-                <text><text></text>可换8</text>
-                <text><text></text>充电2</text>
-                <text><text></text>空箱4</text>
-                <text><text></text>占箱6</text>
+                <text><text style='background:{{listBg[0]}}'></text>可换 8</text>
+                <text><text style='background:{{listBg[1]}}'></text>充电 2</text>
+                <text><text style='background:{{listBg[2]}}'></text>空箱 4</text>
+                <text><text style='background:{{listBg[3]}}'></text>占箱 6</text>
               </view>
             </view>
             <view class='tab_right'>
-              <image src="{{imageUrl}}"></image>
+              <text class='line_left'></text>
+              <image class='signal' src="{{G4}}"></image>
+              <image class='cart' src="{{b_bike}}"></image>
+              <text class='distance'>65.2Km</text>
+            </view>
+          </view>
+        </view>
+        <view class="tab_content tab_content_2" hidden="{{activeIndex != 1}}">
+          <view class='tab_content_li' style="border-bottom:1px solid #ECECEC">
+            <view class='tab_left'>
+              <view>
+                <text>七贤山居西广场1号</text>
+                <text>电柜</text>
+              </view>
+              <view>
+                <text>杭州市余杭区良渚七贤山居</text>
+              </view>
+              <view>
+                <text><text style='background:{{listBg[0]}}'></text>可换 8</text>
+                <text><text style='background:{{listBg[1]}}'></text>充电 2</text>
+                <text><text style='background:{{listBg[2]}}'></text>空箱 4</text>
+                <text><text style='background:{{listBg[3]}}'></text>占箱 6</text>
+              </view>
+            </view>
+            <view class='tab_right'>
+              <text class='line_left'></text>
+              <image class='signal' src="{{G4}}"></image>
+              <image class='cart' src="{{b_bike}}"></image>
+              <text class='distance'>65.2Km</text>
             </view>
           </view>
         </view>
         <view class="tab_content tab_content_3" hidden="{{activeIndex != 2}}">
           3
         </view>
-
+        <!-- 加载 -->
+          <view class="weui-loadmore" wx:if="true">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+          <!-- 暂无数据 -->
+          <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+          </view>
       </view>
     </view>
   </view>

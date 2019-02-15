@@ -1,5 +1,6 @@
 {
+  "usingComponents": {},
   "navigationBarBackgroundColor": "#4F87FE",
-  "navigationBarTitleText": "测试",
+  "navigationBarTitleText": "个人中心",
   "navigationBarTextStyle": "white"
 }

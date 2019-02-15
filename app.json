@@ -3,12 +3,44 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/indexMap/indexMap",
-    "pages/scroll-view"
+    "pages/scroll-view",
+    "pages/center/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "登录",
-    "navigationBarTextStyle": "#4F87FE"
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#4F87FE",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/home_select.png",
+        "iconPath": "pages/images/home.png",
+        "pagePath": "pages/indexMap/indexMap",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/images/monitor_select.png",
+        "iconPath": "pages/images/monitor.png",
+        "pagePath": "pages/indexMap/indexMap",
+        "text": "监控"
+      },
+      {
+        "selectedIconPath": "pages/images/info_select.png",
+        "iconPath": "pages/images/info.png",
+        "pagePath": "pages/index/index",
+        "text": "消息"
+      },
+      {
+        "selectedIconPath": "pages/images/personal2.png",
+        "iconPath": "pages/images/personal.png",
+        "pagePath": "pages/center/my/my",
+        "text": "我的"
+      }
+    ]
   }
 }
